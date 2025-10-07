@@ -1,9 +1,23 @@
+# package directories
 node_modules
+jspm_packages
 
 # Terraform directories
 .terraform
 *.tfstate
 
+# esbuild directories
+.esbuild
+.DS_Store
+build
+
+# extensions
+.vscode
+
+# coverage
+coverage
+
+# env
 .env
 
 *.pem

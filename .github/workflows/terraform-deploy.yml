@@ -19,6 +19,24 @@ jobs:
       - name: 📥 Checkout Repository
         uses: actions/checkout@v4
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: 🛠️ Build TypeScript Lambdas
+        run: |
+          cd ..
+          npm run build
+
+      - name: 🗜️ Zip Lambda Functions
+        run: |
+          cd ..
+          npm run zip
+
       - name: 🔐 Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:

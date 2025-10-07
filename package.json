@@ -1,0 +1,18 @@
+{
+  "name": "aws-event-driven-app",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf dist",
+    "zip": "cd dist/functions && zip -r ../../../function_producer.zip producer && zip -r ../../../function_consumer.zip consumer"
+  },
+  "dependencies": {
+    "@aws-sdk/client-eventbridge": "^3.600.0"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.137",
+    "@types/node": "^24.7.0",
+    "typescript": "^5.6.3"
+  }
+}
