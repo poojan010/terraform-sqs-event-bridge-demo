@@ -66,7 +66,6 @@ resource "aws_lambda_function" "producer" {
   environment {
     variables = {
       EVENT_BUS_NAME = aws_cloudwatch_event_bus.order_bus.name
-      AWS_REGION     = "ap-south-1"
     }
   }
 }
