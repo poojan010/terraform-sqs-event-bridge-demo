@@ -2,6 +2,9 @@ name: Terraform Deploy SQS Event Bridge Demo App
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
 
 jobs:
   terraform-deploy:
