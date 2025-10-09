@@ -59,8 +59,8 @@ resource "aws_lambda_function" "producer" {
   function_name    = "order-producer"
   runtime          = "nodejs20.x"
   handler          = "index.handler"
-  filename         = "${path.module}/function_producer.zip"
-  source_code_hash = filebase64sha256("${path.module}/function_producer.zip")
+  filename         = "${path.module}/producer.zip"
+  source_code_hash = filebase64sha256("${path.module}/producer.zip")
   role             = aws_iam_role.lambda_role.arn
 
   environment {
@@ -75,8 +75,8 @@ resource "aws_lambda_function" "consumer" {
   function_name    = "order-consumer"
   runtime          = "nodejs20.x"
   handler          = "index.handler"
-  filename         = "${path.module}/function_consumer.zip"
-  source_code_hash = filebase64sha256("${path.module}/function_consumer.zip")
+  filename         = "${path.module}/consumer.zip"
+  source_code_hash = filebase64sha256("${path.module}/consumer.zip")
   role             = aws_iam_role.lambda_role.arn
 }
 
