@@ -4,8 +4,9 @@
   "type": "module",
   "scripts": {
     "build": "tsc",
-    "clean": "rm -rf dist",
-    "zip": "cd dist/functions && zip -r ../../../function_producer.zip producer && zip -r ../../../function_consumer.zip consumer"
+    "clean": "rm -rf dist *.zip",
+    "zip": "zip -j producer.zip dist/producer/index.js && zip -j consumer.zip dist/consumer/index.js",
+    "deploy": "npm run clean && npm run build && npm run zip"
   },
   "dependencies": {
     "@aws-sdk/client-eventbridge": "^3.600.0"

@@ -25,17 +25,20 @@ jobs:
           node-version: 20
 
       - name: Install Dependencies
-        run: npm install
+        run: |
+          cd ..
+          yarn install
 
       - name: 🛠️ Build TypeScript Lambdas
         run: |
           cd ..
-          npm run build
+          yarn clean
+          yarn build
 
       - name: 🗜️ Zip Lambda Functions
         run: |
           cd ..
-          npm run zip
+          yarn zip
 
       - name: 🔐 Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
