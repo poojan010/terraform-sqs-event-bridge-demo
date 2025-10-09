@@ -5,7 +5,7 @@
   "scripts": {
     "build": "tsc",
     "clean": "rm -rf dist *.zip",
-    "zip": "zip -j producer.zip dist/producer/index.js && zip -j consumer.zip dist/consumer/index.js",
+    "zip": "zip -j terraform/producer.zip dist/producer/index.js && zip -j terraform/consumer.zip dist/consumer/index.js",
     "deploy": "npm run clean && npm run build && npm run zip"
   },
   "dependencies": {
