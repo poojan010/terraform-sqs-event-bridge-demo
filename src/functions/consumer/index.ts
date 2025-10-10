@@ -6,8 +6,10 @@ export const handler = async (event: SQSEvent): Promise<void> => {
 
   for (const record of event.Records) {
     try {
-      const body = JSON.parse(record.body);
-      const detail = JSON.parse(body.detail);
+      const body =
+        typeof record.body === "string" ? JSON.parse(record.body) : record.body;
+
+      const detail = body.detail;
 
       console.log("📦 Processing order:", detail.orderId);
       await simulateProcessing(1000);
