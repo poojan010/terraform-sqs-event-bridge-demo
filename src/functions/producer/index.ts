@@ -21,7 +21,11 @@ export const handler = async (event: APIGatewayProxyEvent): Promise<APIGatewayPr
       ],
     };
 
-    await client.send(new PutEventsCommand(params));
+    console.log("Event params:", JSON.stringify(params, null, 2));
+
+    const sendResponse = await client.send(new PutEventsCommand(params));
+
+    console.log(`Event Published to Event Bus \n Here is the send response : ${JSON.stringify(sendResponse, null, 2)}`)
 
     return {
       statusCode: 200,
